@@ -134,3 +134,4 @@ Draw.player = function () {
   ctx.arc(dotX, dotY, 4, 0, Math.PI * 2);
   ctx.fill();
 };
+Enemy.draw();  

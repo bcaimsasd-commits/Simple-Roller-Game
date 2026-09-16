@@ -89,3 +89,13 @@ Player.hasWon = function () {
   var size = CONFIG.PLAYER_SIZE;
   return Collide.hitsFinish(Player.x, Player.y, size, size);
 };
+  lives: 3,  
+  hitState: "normal", // "normal" or "invincible"  
+  hitTimer: 0  
+  // --- count down invincibility ---------------------------------------  
+  if (Player.hitState === "invincible") {  
+    Player.hitTimer = Player.hitTimer - 1;  
+    if (Player.hitTimer <= 0) {  
+      Player.hitState = "normal";  
+    }  
+  }  
