@@ -36,7 +36,7 @@ Draw.everything = function () {
   ctx.translate(-Draw.cameraX, 0);  
   
   Draw.world();  
-  Enemy.draw();   // enemies, drawn on top of the world  
+  Enemy.draw();  
   Draw.player();  
   
   ctx.restore();  
@@ -88,7 +88,7 @@ Draw.spike = function (x, y, size) {
   ctx.fill();  
 };  
   
-// The finish: a black pole with a flag on it.  
+// The finish: a white pole with a flag on it.  
 Draw.finish = function (x, y, size) {  
   var ctx = Draw.ctx;  
   ctx.fillStyle = "#ffffff";  
@@ -120,4 +120,7 @@ Draw.player = function () {
   var dotY = centerY + Math.sin(Player.angle) * r * CONFIG.DOT_DISTANCE;  
   
   ctx.fillStyle = "#000000";  
- 
+  ctx.beginPath();  
+  ctx.arc(dotX, dotY, 4, 0, Math.PI * 2);  
+  ctx.fill();  
+};  
