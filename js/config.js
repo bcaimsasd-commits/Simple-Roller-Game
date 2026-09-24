@@ -38,5 +38,7 @@ var CONFIG = {
   // --- our enemy mod --------------------------------------------------  
   START_LIVES: 3,         // how many hits before the level restarts  
   INVINCIBLE_FRAMES: 60,  // about one second of flashing after a hit  
-  ENEMY_SPEED: 1.5        // how fast the enemy patrols  
+  ENEMY_SPEED: 1.5,       // how fast the enemy patrols
+  SHOE_SPEED: 8,          // how fast a thrown shoe travels
+  SHOE_GRAVITY: 0.3       // how quickly a thrown shoe falls
 };  

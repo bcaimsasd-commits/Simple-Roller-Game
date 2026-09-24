@@ -18,6 +18,7 @@ Game.startLevel = function (levelNumber) {
   Game.levelNumber = levelNumber;  
   Level.build(levelNumber);  
   Enemy.reset();          // find every "e" in the level before the player spawns  
+  Weapon.reset();
   Player.reset();  
   Game.mode = "playing";  
   Game.showMessage("");  
@@ -40,6 +41,7 @@ Game.update = function () {
   if (Game.mode !== "playing") { return; }  
   
   Player.update();  
+  Weapon.update();
   Enemy.update();         // enemies patrol and check if they touched the player  
   
   if (Player.isDead()) {  

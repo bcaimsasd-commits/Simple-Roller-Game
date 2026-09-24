@@ -29,6 +29,7 @@ Draw.everything = function () {
   ctx.translate(-Draw.cameraX, 0);  
   
   Draw.world();  
+  Weapon.draw();
   Enemy.draw();   // draw enemies after the world so they sit on top  
   Draw.player();  
   

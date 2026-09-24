@@ -13,6 +13,7 @@ Press `Ctrl + Shift + R` to hard refresh, or you will see the old version.
 
 - LEFT / RIGHT arrow - roll
 - SPACE or UP arrow - jump
+- X - throw a collected shoe
 - R - restart the level
 
 ## Where everything lives
@@ -58,6 +59,8 @@ Each picture is 8 columns wide and 10 rows tall:
 - `^` is a spike
 - `S` is where the player starts
 - `F` is the finish
+- `e` is an NPC
+- `w` is a shoe pickup
 
 To make a new level: change the list of names.
 To make a new piece: copy one, rename it, redraw the picture, then use
