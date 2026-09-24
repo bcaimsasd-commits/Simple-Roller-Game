@@ -1,13 +1,15 @@
 var Weapon = {
   pickups: [],
   shots: [],
-  wasThrowing: false
+  wasThrowing: false,
+  hasShoe: false
 };
 
 Weapon.reset = function () {
   Weapon.pickups = [];
   Weapon.shots = [];
   Weapon.wasThrowing = false;
+  Weapon.hasShoe = false;
   for (var row = 0; row < CONFIG.ROWS; row++) {
     for (var col = 0; col < Level.cols; col++) {
       if (Level.charAt(col, row) === "w") {
@@ -24,17 +26,19 @@ Weapon.update = function () {
     if (Collide.boxesOverlap(pickup.x, pickup.y, 24, 24,
       Player.x, Player.y, CONFIG.PLAYER_SIZE, CONFIG.PLAYER_SIZE)) {
       Weapon.pickups.splice(i, 1);
+      Weapon.hasShoe = true;
       Game.showMessage("Shoe collected. Press X to throw it.");
     }
   }
 
-  if (Input.throwWeapon && !Weapon.wasThrowing && Weapon.pickups.length === 0 && Weapon.shots.length === 0) {
+  if (Input.throwWeapon && !Weapon.wasThrowing && Weapon.hasShoe && Weapon.shots.length === 0) {
     Weapon.shots.push({
       x: Player.x + (Player.vx < 0 ? -24 : CONFIG.PLAYER_SIZE),
       y: Player.y + 8,
       vx: Player.vx < 0 ? -CONFIG.SHOE_SPEED : CONFIG.SHOE_SPEED,
       vy: -2
     });
+    Weapon.hasShoe = false;
   }
   Weapon.wasThrowing = Input.throwWeapon;
 

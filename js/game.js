@@ -16,6 +16,7 @@ var Game = {
   
 Game.startLevel = function (levelNumber) {  
   Game.levelNumber = levelNumber;  
+  Input.reset();
   Level.build(levelNumber);  
   Enemy.reset();          // find every "e" in the level before the player spawns  
   Weapon.reset();
